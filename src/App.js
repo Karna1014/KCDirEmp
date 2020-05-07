@@ -1,22 +1,23 @@
-import React from 'react';
-import './App.css';
+ import React from 'react';
+ import './App.css';
+//  import Table from "./components/index";
 import BootstrapTable from 'react-bootstrap-table-next';
 import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
-import data from "./components/emp.json";
+import data from "./components/Employee.json";
 import "react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter";
 import "react-bootstrap-table-next/dist/react-bootstrap-table-next";
 
 
-const employees = data.data;
+const employees = data;
 
 const columns = [
   {
-      "dataField": "ID",
+      "dataField": "id",
       "text": "Employee ID",
       "sort": true
   },
   {
-      "dataField": "First Name",
+      "dataField": "first_name",
       "text": "First Name",
       "sort": true,
       "filter": textFilter({
@@ -24,26 +25,28 @@ const columns = [
       })
   },
   {
-      "dataField": "Last Name",
+      "dataField": "last_name",
       "text": "Last Name",
       "sort": true
   },
   {
-      "dataField": "Email",
+      "dataField": "email",
       "text": "Email",
       "sort": true
   },
   {
-      "dataField": "Department",
-      "text": "Department",
+      "dataField": "title",
+      "text": "Title",
       "sort": true
   }
 ];
 
+
+
 function App() {
   return (
     <div className="App">
-      <BootstrapTable keyField="ID" data={employees} columns={columns} filter={ filterFactory() }></BootstrapTable>
+     <BootstrapTable keyField="id" data={employees} columns={columns} filter={ filterFactory() }></BootstrapTable>
     </div>
   );
 }
